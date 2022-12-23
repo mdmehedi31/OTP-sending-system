@@ -14,18 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class EmailController {
 
-    /*@Autowired*/
+
+    @Autowired
     private MailServiceImple mailServiceImple;
 
     @Autowired
     private AddCustomerDaoDefination addCustomerDaoDefination;
 
-    @RequestMapping("/writeEmail/{customerId}")
-    public String createEmail(Model model, @PathVariable("customerId")Long customerId){
+   // @RequestMapping("/writeEmail/*/{customerId}"*/)
 
-        String mailId= addCustomerDaoDefination.getEmail(customerId);
+    @RequestMapping("/writeEmail")
+    public String createEmail(Model model/*, @PathVariable("customerId")Long customerId*/){
 
-        model.addAttribute("mailId",mailId);
+        /*String mailId= addCustomerDaoDefination.getEmail(customerId);
+
+        model.addAttribute("mailId",mailId);*/
         model.addAttribute("mailDto", new MailDto());
         return "/writeEmail";
     }
