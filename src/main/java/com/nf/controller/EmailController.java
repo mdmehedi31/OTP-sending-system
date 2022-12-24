@@ -37,7 +37,8 @@ public class EmailController {
     @PostMapping("views/writeEmail")
     public String sendMail(@ModelAttribute("mailDto")MailDto mailDto){
 
-        mailServiceImple.sendEmail(mailDto.getUserEmail(),mailDto.getSubject(),mailDto.getMessage());
+//        mailServiceImple.sendEmail(mailDto.getUserEmail(),mailDto.getSubject(),mailDto.getMessage());
+        mailServiceImple.sendEmail(mailDto);
         return "Sent Successful";
     }
 

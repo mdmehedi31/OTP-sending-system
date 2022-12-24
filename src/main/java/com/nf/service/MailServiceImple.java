@@ -1,5 +1,6 @@
 package com.nf.service;
 
+import com.nf.dto.MailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -12,13 +13,13 @@ public class MailServiceImple implements MailServiceDefinition{
     @Autowired
     private JavaMailSender javaMailSender;
     @Override
-    public void sendEmail(String userMail, String subject, String message) {
+    public void sendEmail(/*String userMail, String subject, String message*/ MailDto mailDto) {
 
         SimpleMailMessage simpleMail= new SimpleMailMessage();
         simpleMail.setFrom("mailbotbd@gmail.com");
-        simpleMail.setTo(userMail);
-        simpleMail.setSubject(subject);
-        simpleMail.setText(message);
+        simpleMail.setTo(mailDto.getUserEmail());
+        simpleMail.setSubject(mailDto.getSubject());
+        simpleMail.setText(mailDto.getMessage());
 
         javaMailSender.send(simpleMail);
 
