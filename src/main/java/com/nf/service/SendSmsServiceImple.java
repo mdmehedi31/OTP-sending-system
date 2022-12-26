@@ -18,13 +18,13 @@ public class SendSmsServiceImple implements SendSmsService{
 
     @Override
     public void sendSms(SmsDto smsDto) {
+        
 
         Twilio.init(ACCOUNT_SID,AUTH_TOKEN);
 
         PhoneNumber to= new PhoneNumber(smsDto.getPhoneNumber());
         PhoneNumber from= new PhoneNumber(TWILIO_NUMBER);
         String message= smsDto.getMessage();
-
         MessageCreator messageCreator= Message.creator(to,from,message);
         messageCreator.create();
 
