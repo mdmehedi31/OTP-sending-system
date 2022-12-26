@@ -21,5 +21,11 @@ Class-Path: spring-webmvc-5.3.24.jar spring-aop-5.3.24.jar spring-beans-
  curity-acl-5.7.1.jar hibernate-validator-6.1.0.Final.jar jakarta.valida
  tion-api-2.0.2.jar spring-data-jpa-2.4.0.jar spring-data-commons-2.4.0.
  jar aspectjrt-1.9.6.jar slf4j-api-1.7.26.jar javax.mail-1.6.2.jar activ
- ation-1.1.jar spring-context-support-5.3.24.jar
+ ation-1.1.jar spring-context-support-5.3.24.jar twilio-9.2.0.jar common
+ s-codec-1.15.jar commons-io-2.7.jar jjwt-api-0.11.2.jar jjwt-jackson-0.
+ 11.2.jar jjwt-impl-0.11.2.jar httpclient-4.5.13.jar commons-logging-1.2
+ .jar httpcore-4.4.13.jar jackson-core-2.14.0.jar jackson-annotations-2.
+ 14.0.jar jackson-databind-2.14.0.jar jackson-datatype-jsr310-2.14.0.jar
+  jackson-dataformat-xml-2.14.0.jar stax2-api-4.2.1.jar woodstox-core-6.
+ 4.0.jar json-20220320.jar
 

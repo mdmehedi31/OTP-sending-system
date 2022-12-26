@@ -8,5 +8,6 @@
     <h2>Hello welcome to the notification service</h2>
     <a href="${pageContext.request.contextPath}/writeEmail">Write Email</a>
     <a href="${pageContext.request.contextPath}/addCustomer">Add Customer</a>
+    <a href="${pageContext.request.contextPath}/sendSms">Send SMS</a>
 </body>
 </html>
