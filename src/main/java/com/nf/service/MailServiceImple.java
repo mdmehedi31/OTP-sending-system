@@ -13,7 +13,7 @@ public class MailServiceImple implements MailServiceDefinition{
     @Autowired
     private JavaMailSender javaMailSender;
     @Override
-    public void sendEmail(/*String userMail, String subject, String message*/ MailDto mailDto) {
+    public void sendEmail(MailDto mailDto) {
 
         SimpleMailMessage simpleMail= new SimpleMailMessage();
         simpleMail.setFrom("mailbotbd@gmail.com");
