@@ -11,7 +11,7 @@ public class OTPController {
 
     @RequestMapping("/sendOtp")
     public String createOtp(Model model){
-        
+
         return "/sendOtp";
     }
 
