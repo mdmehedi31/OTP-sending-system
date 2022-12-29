@@ -27,5 +27,5 @@ Class-Path: spring-webmvc-5.3.24.jar spring-aop-5.3.24.jar spring-beans-
  .jar httpcore-4.4.13.jar jackson-core-2.14.0.jar jackson-annotations-2.
  14.0.jar jackson-databind-2.14.0.jar jackson-datatype-jsr310-2.14.0.jar
   jackson-dataformat-xml-2.14.0.jar stax2-api-4.2.1.jar woodstox-core-6.
- 4.0.jar json-20220320.jar
+ 4.0.jar json-20220320.jar freemarker-2.3.31.jar
 

@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,6 +9,7 @@
 <body>
 
  <div>
+
 
      <form:form action="${pageContext.request.contextPath}views/sendOtp" method="post">
          <table align="center">
@@ -20,8 +23,11 @@
                      OTP Type
                  </td>
                  <td>
+
                    <select>
-                       <option></option>
+                     <c:forEach items="${enums}" var="key">
+                         <option value="${key}">${key}</option>
+                     </c:forEach>
                    </select>
                  </td>
              </tr>
