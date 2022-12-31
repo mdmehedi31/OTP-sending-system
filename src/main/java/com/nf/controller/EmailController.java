@@ -21,14 +21,15 @@ public class EmailController {
     @Autowired
     private AddCustomerDaoDefination addCustomerDaoDefination;
 
-   // @RequestMapping("/writeEmail/*/{customerId}"*/)
 
-    @RequestMapping("/writeEmail")
-    public String createEmail(Model model/*, @PathVariable("customerId")Long customerId*/){
 
-        /*String mailId= addCustomerDaoDefination.getEmail(customerId);
+    /*@RequestMapping("/writeEmail")*/
+     @RequestMapping("/writeEmail/{customerId}")
+    public String createEmail(Model model, @PathVariable("customerId")Long customerId){
 
-        model.addAttribute("mailId",mailId);*/
+        String mailId= addCustomerDaoDefination.getEmail(customerId);
+
+        model.addAttribute("mailId",mailId);
         model.addAttribute("mailDto", new MailDto());
         return "/writeEmail";
     }

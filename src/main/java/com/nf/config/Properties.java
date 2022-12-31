@@ -2,7 +2,7 @@ package com.nf.config;
 
 public class Properties {
 
-    public static final String ACCOUNT_SID="ACf6833a03e14e7e6b12a4f182a4aab133";
-    public static final String AUTH_TOKEN="ff9ad3284f7d81521c73c760956732f0";
-    public static final String TWILIO_NUMBER ="+18145605224";
+    public static final String ACCOUNT_SID="AC87e5b747a337a08dfa72c476dad9e468";
+    public static final String AUTH_TOKEN="50031fefdbc79e1586da8479b5374232";
+    public static final String TWILIO_NUMBER ="+13854815312";
 }
