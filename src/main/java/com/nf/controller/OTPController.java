@@ -2,9 +2,13 @@ package com.nf.controller;
 
 
 import com.nf.dto.MailDto;
+import com.nf.dto.MailOtpDto;
+import com.nf.dto.SendOtpDto;
+import com.nf.dto.SmsOtpDto;
 import com.nf.enums.OtpType;
 import com.nf.service.CreateOtp;
 import com.nf.service.SendOtpServiceImple;
+import com.nf.service.SendOtpSmsServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,28 +28,47 @@ public class OTPController {
     @Autowired
     private SendOtpServiceImple sendOtpServiceImple;
 
+    @Autowired
+    private SendOtpSmsServiceImple sendOtpSmsServiceImple;
 
 
-
-
-    private CreateOtp createOtp;
     @RequestMapping("/sendOtp")
     public String createOtp(Model model){
 
         List<OtpType> enums= Arrays.asList(OtpType.values());
         model.addAttribute("enums", enums);
+        model.addAttribute("sendOtpDto", new SendOtpDto());
         return "/sendOtp";
     }
 
     @PostMapping("views/sendOtp")
-    public String sendOtp(@ModelAttribute("mailDto")MailDto mailDto){
+    public String sendOtp(@ModelAttribute("sendOtpDto")SendOtpDto sendOtpDto){
 
-        Map<String, Object> model= new HashMap<>();
+        CreateOtp createOtp= new CreateOtp();
+        String type= sendOtpDto.getTypeOtp();
+        String to=sendOtpDto.getSendTo();
 
-        int otp= createOtp.getOtp();
+        if (type.equals("EMAIL")){
+            Map<String, Object> model= new HashMap<>();
 
-        model.put("code",otp);
-        sendOtpServiceImple.sendEmail(mailDto,model);
+            MailOtpDto mailOtpDto= new MailOtpDto();
+            int otp= createOtp.getOtp();
+
+            model.put("code",otp);
+            sendOtpServiceImple.sendEmail(mailOtpDto,to,model);
+        }
+        else if (type.equals("SMS")){
+            SmsOtpDto smsOtpDto= new SmsOtpDto();
+
+            sendOtpSmsServiceImple.sendOtpSms(smsOtpDto,to);
+
+        }
+        else {
+            return "Value is not correct format";
+        }
+
+
+
 
         return "send successful";
 

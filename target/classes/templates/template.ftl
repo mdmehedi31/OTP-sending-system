@@ -131,7 +131,7 @@
                                                 <div class="alignment" align="center">
                                                     <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:41px;width:86px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#8a3c90"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]-->
                                                     <div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#8a3c90;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;">
-																	<span style="word-break: break-word; line-height: 32px;">HELLO</span></span></div>
+																	<span style="word-break: break-word; line-height: 32px;">${code}</span></span></div>
                                                     <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                                 </div>
                                             </td>

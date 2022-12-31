@@ -2,6 +2,7 @@ package com.nf.service;
 
 import com.nf.config.Properties;
 import com.nf.dto.SmsDto;
+import com.nf.dto.SmsOtpDto;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
@@ -15,16 +16,16 @@ public class SendOtpSmsServiceImple implements SendOtpSmsServiceDefinition{
     CreateOtp createOtp= new CreateOtp();
 
     @Override
-    public void sendOtpSms(SmsDto smsDto) {
+    public void sendOtpSms(SmsOtpDto smsOtpDto, String toPhone) {
 
         Twilio.init(Properties.ACCOUNT_SID,Properties.AUTH_TOKEN);
 
-        PhoneNumber to = new PhoneNumber(smsDto.getPhoneNumber());
+        PhoneNumber to = new PhoneNumber(toPhone);
         PhoneNumber from= new PhoneNumber(Properties.TWILIO_NUMBER);
 
         String message=getMessage();
 
-        MessageCreator messageCreator = Message.creator(to, from,message);
+        MessageCreator messageCreator = Message.creator(to,from,message);
 
         messageCreator.create();
     }

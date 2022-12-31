@@ -1,6 +1,8 @@
 package com.nf.service;
 
 import com.nf.dto.MailDto;
+import com.nf.dto.MailOtpDto;
+import com.nf.dto.SendOtpDto;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -26,7 +28,7 @@ public class SendOtpServiceImple implements SendOtpServiceDefinition {
     private Configuration configuration;
 
     @Override
-    public void sendEmail(MailDto mailDto, Map<String, Object> model) {
+    public void sendEmail(MailOtpDto mailOtpDto,String to ,Map<String, Object> model) {
 
 
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -38,9 +40,10 @@ public class SendOtpServiceImple implements SendOtpServiceDefinition {
             Template t = configuration.getTemplate("template.ftl");
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
 
+            String subject="Verification OTP";
             helper.setFrom("mailbotbd@gmail.com");
-            helper.setTo(mailDto.getUserEmail());
-            helper.setSubject(mailDto.getSubject());
+            helper.setTo(to);
+            helper.setSubject(subject);
             helper.setText(html, true);
 
             javaMailSender.send(message);

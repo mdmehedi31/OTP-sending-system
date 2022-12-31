@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,7 +12,9 @@
  <div>
 
 
-     <form:form action="${pageContext.request.contextPath}views/sendOtp" method="post">
+     <%--@elvariable id="sendOtpDto" type="com.nf.entity"--%>
+     <form:form action="${pageContext.request.contextPath}views/sendOtp" method="post"
+                modelAttribute="sendOtpDto">
          <table align="center">
              <tr>
                  <td colspan="2">
@@ -24,11 +27,11 @@
                  </td>
                  <td>
 
-                   <select>
+                   <from:select path="typeOtp">
                      <c:forEach items="${enums}" var="key">
                          <option value="${key}">${key}</option>
                      </c:forEach>
-                   </select>
+                   </from:select>
                  </td>
              </tr>
              <tr>
@@ -36,8 +39,8 @@
                      Email/SMS
                  </td>
                  <td>
-                    <%-- <form:input &lt;%&ndash;path=""&ndash;%&gt;></form:input>--%>
-                     <input type="text">
+                    
+                        <form:input type="text" cssClass="form-control" id="sendTo" path="sendTo"></form:input>
                  </td>
              </tr>
              <tr>
