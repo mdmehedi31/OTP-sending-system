@@ -23,10 +23,10 @@
         <tr>
           <td colspan="2">Email To</td>
           <td>
-            <%--<c:forEach var="mail"  items="${mailId}">
-              <td>${mail}</td>
-            </c:forEach>--%>
-           <form:input type="text" cssClass="form-control" id="userEmail" path="userEmail"></form:input>
+           <%-- <c:forEach var="mail"  items="${mailId}">--%>
+              <td>${mailId}</td>
+            <%--</c:forEach>--%>
+         <%--  <form:input type="text" cssClass="form-control" id="userEmail" path="userEmail"></form:input>--%>
           </td>
         </tr>
         <tr>

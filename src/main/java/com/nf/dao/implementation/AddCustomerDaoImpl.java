@@ -1,6 +1,6 @@
 package com.nf.dao.implementation;
 
-import com.nf.dao.defination.AddCustomerDaoDefination;
+import com.nf.dao.defination.AddCustomerDaoDefinition;
 import com.nf.entity.AddCustomer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AddCustomerDaoImpl implements AddCustomerDaoDefination {
+public class AddCustomerDaoImpl implements AddCustomerDaoDefinition {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -47,20 +47,31 @@ public class AddCustomerDaoImpl implements AddCustomerDaoDefination {
     public AddCustomer getCustomer(Long customerId) {
 
         Session session= sessionFactory.getCurrentSession();
-
         AddCustomer addCustomer= session.get(AddCustomer.class,customerId);
         return addCustomer;
     }
 
+    /*
+    *
+    *  List<User> users = sessionFactory.getCurrentSession()
+                .createQuery("FROM User WHERE username = :username", User.class)
+                .setParameter("username", username.toLowerCase())
+                .getResultList();
+        return users.size() > 0 ? users.get(0) : null;
+    * */
     @Override
     public String getEmail(Long customerId) {
 
-        Session session= sessionFactory.getCurrentSession();
+        String email = String.valueOf(sessionFactory.getCurrentSession()
+                .createQuery("select AddCustomer.email from AddCustomer where AddCustomer.customerId=:customerId", AddCustomer.class)
+                .setParameter("customerId", customerId)
+                .getSingleResult());
 
-        Query email= session.createQuery("select email from AddCustomer where id=: customerId");
 
-        /*session.close();*/
-        return email.toString();
+        return email;
+
+     /*   *//*session.close();*//*
+        return email;*/
 
     }
 
@@ -81,12 +92,13 @@ public class AddCustomerDaoImpl implements AddCustomerDaoDefination {
 
         Session session= sessionFactory.getCurrentSession();
         try{
-
             session.delete(customer);
+            return true;
 
         }catch (Exception e){
 
+            return false;
         }
-        return false;
+
     }
 }

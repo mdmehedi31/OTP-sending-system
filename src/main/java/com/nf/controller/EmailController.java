@@ -1,8 +1,9 @@
 package com.nf.controller;
 
-import com.nf.dao.defination.AddCustomerDaoDefination;
+import com.nf.dao.defination.AddCustomerDaoDefinition;
 import com.nf.dto.MailDto;
 import com.nf.service.MailServiceImple;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ public class EmailController {
     private MailServiceImple mailServiceImple;
 
     @Autowired
-    private AddCustomerDaoDefination addCustomerDaoDefination;
+    private AddCustomerDaoDefinition addCustomerDaoDefinition;
 
 
 
@@ -27,9 +28,9 @@ public class EmailController {
      @RequestMapping("/writeEmail/{customerId}")
     public String createEmail(Model model, @PathVariable("customerId")Long customerId){
 
-        String mailId= addCustomerDaoDefination.getEmail(customerId);
+        String mailId= addCustomerDaoDefinition.getEmail(customerId);
 
-        model.addAttribute("mailId",mailId);
+         model.addAttribute("mailId",mailId);
         model.addAttribute("mailDto", new MailDto());
         return "/writeEmail";
     }

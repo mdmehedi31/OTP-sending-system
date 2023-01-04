@@ -1,10 +1,9 @@
 package com.nf.controller;
 
 
-import com.nf.dao.defination.AddCustomerDaoDefination;
+import com.nf.dao.defination.AddCustomerDaoDefinition;
 import com.nf.dto.AddCustomerDto;
 import com.nf.entity.AddCustomer;
-import org.hibernate.annotations.NaturalId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ public class AddCustomerController {
 
 
     @Autowired
-    private AddCustomerDaoDefination addCustomerDaoDefination;
+    private AddCustomerDaoDefinition addCustomerDaoDefinition;
 
     @RequestMapping("addCustomer")
     public String customer(Model model){
@@ -42,7 +41,7 @@ public class AddCustomerController {
         addCustomer.setCustomerDetails(addCustomerDto.getCustomerDetails());
 
 
-        addCustomerDaoDefination.addCustomer(addCustomer);
+        addCustomerDaoDefinition.addCustomer(addCustomer);
         model.addAttribute("addCustomer", addCustomer);
 
        List<AddCustomer>listCustomer=getListCustomer();
@@ -53,7 +52,7 @@ public class AddCustomerController {
 
     private List<AddCustomer>  getListCustomer(){
 
-        List<AddCustomer> listCustomer= addCustomerDaoDefination.listCustomer();
+        List<AddCustomer> listCustomer= addCustomerDaoDefinition.listCustomer();
 
         return listCustomer;
     }
@@ -63,7 +62,7 @@ public class AddCustomerController {
     public String getCustomer(Model model, @PathVariable("customerId") Long customerId){
 
 
-        AddCustomer addCustomer= addCustomerDaoDefination.getCustomer(customerId);
+        AddCustomer addCustomer= addCustomerDaoDefinition.getCustomer(customerId);
 
         model.addAttribute("addCustomer", addCustomer);
 
@@ -74,7 +73,7 @@ public class AddCustomerController {
     @RequestMapping(value = "editCustomer/{customerId}")
     public String editCustomer(Model model, @PathVariable("customerId") Long customerId){
 
-        AddCustomer customer= addCustomerDaoDefination.getCustomer(customerId);
+        AddCustomer customer= addCustomerDaoDefinition.getCustomer(customerId);
         model.addAttribute("customer", customer);
 
         return "updateCustomer";
@@ -86,12 +85,12 @@ public class AddCustomerController {
                                  @ModelAttribute("customerDto") AddCustomerDto addCustomerDto){
 
 
-        AddCustomer customer= addCustomerDaoDefination.getCustomer(customerId);
+        AddCustomer customer= addCustomerDaoDefinition.getCustomer(customerId);
         customer.setName(addCustomerDto.getName());
         customer.setEmail(addCustomerDto.getEmail());
         customer.setCustomerDetails(addCustomerDto.getCustomerDetails());
 
-        addCustomerDaoDefination.updateCustomer(customer);
+        addCustomerDaoDefinition.updateCustomer(customer);
 
         return "redirect:/addCustomer";
 
@@ -100,9 +99,9 @@ public class AddCustomerController {
     @RequestMapping(value = "deleteCustomer/{customerId}")
     public String deleteCustomer(@PathVariable("customerId")Long customerId){
 
-        AddCustomer addCustomer= addCustomerDaoDefination.getCustomer(customerId);
+        AddCustomer addCustomer= addCustomerDaoDefinition.getCustomer(customerId);
 
-        addCustomerDaoDefination.deleteCustomer(addCustomer);
+        addCustomerDaoDefinition.deleteCustomer(addCustomer);
 
         return "redirect:/addCustomer";
     }
