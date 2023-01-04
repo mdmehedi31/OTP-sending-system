@@ -1,7 +1,7 @@
 package com.nf.controller;
 
 
-import com.nf.dao.defination.AddCustomerDaoDefinition;
+import com.nf.dao.definition.AddCustomerDaoDefinition;
 import com.nf.dto.AddCustomerDto;
 import com.nf.entity.AddCustomer;
 import org.springframework.beans.factory.annotation.Autowired;

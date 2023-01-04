@@ -11,5 +11,6 @@
     <a href="${pageContext.request.contextPath}/addCustomer">Add Customer</a>
     <a href="${pageContext.request.contextPath}/sendSms">Send SMS</a>
     <a href="${pageContext.request.contextPath}/sendOtp">Send OTP</a>
+    <a href="${pageContext.request.contextPath}/addWork">Add Work</a>
 </body>
 </html>

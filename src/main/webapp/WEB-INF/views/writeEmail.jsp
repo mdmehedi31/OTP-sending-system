@@ -7,7 +7,13 @@
     <title>Title</title>
 
   <style>
-
+          #mailList{
+            border: 1.5px solid darkred;
+            border-radius: 12px;
+          }
+          #mailHead{
+            background-color: #2f4d6a;
+          }
   </style>
 </head>
 <body>
@@ -48,5 +54,36 @@
   </div>
 
 </section>
+
+<div>
+   <table id="mailList" class="table table-striped table-hover">
+       <thead id="mailHead">
+       <tr>
+       <th>#</th>
+       <th>Mail Id</th>
+       <th>Sub Title</th>
+       <th>Mail Date</th>
+       <th>Operation</th>
+     </tr>
+       </thead>
+
+     <tbody>
+
+        <c:forEach var="mail" items="${mailList}" varStatus="counter">
+          <tr>
+          <td>${counter.count}</td>
+          <td>${mail.mailId}</td>
+          <td>${mail.subTitle}</td>
+          <td>${mail.mailDate}</td>
+          <td>
+            <a href="<c:url value="/writeEmail/${customer.customerId}"/>" class="btn btn-success">Send Email</a>
+            <a href="<c:url value="/viewCustomer/${customer.customerId}"/>" class="btn btn-success">Views</a>
+          </td>
+          </tr>
+        </c:forEach>
+
+     </tbody>
+   </table>
+</div>
 </body>
 </html>

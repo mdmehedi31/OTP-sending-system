@@ -1,6 +1,6 @@
 package com.nf.dao.implementation;
 
-import com.nf.dao.defination.AddCustomerDaoDefinition;
+import com.nf.dao.definition.AddCustomerDaoDefinition;
 import com.nf.entity.AddCustomer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
