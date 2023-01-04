@@ -12,7 +12,7 @@
             border-radius: 12px;
           }
           #mailHead{
-            background-color: #2f4d6a;
+            background-color: darkgoldenrod;
           }
   </style>
 </head>
@@ -56,6 +56,7 @@
 </section>
 
 <div>
+    <h1><b><u>ToDay Mail Schedule</u></b></h1>
    <table id="mailList" class="table table-striped table-hover">
        <thead id="mailHead">
        <tr>
