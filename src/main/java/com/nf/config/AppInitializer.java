@@ -16,12 +16,11 @@ public class AppInitializer implements WebApplicationInitializer {
 
         //root cofig
         AnnotationConfigWebApplicationContext rootConfig = new AnnotationConfigWebApplicationContext();
-        rootConfig.register(DBConfig.class);
+        rootConfig.register(DBConfig.class, SecurityConfig.class);
         rootConfig.refresh();
         servletContext.addListener(new ContextLoaderListener(rootConfig));
 
         // servlet config
-
         AnnotationConfigWebApplicationContext servletConfig= new AnnotationConfigWebApplicationContext();
         servletConfig.register(ServletConfig.class);
         ServletRegistration.Dynamic servletRegistration= servletContext.
@@ -33,6 +32,4 @@ public class AppInitializer implements WebApplicationInitializer {
         //add mapping
         servletRegistration.addMapping("/");
     }
-
-
 }

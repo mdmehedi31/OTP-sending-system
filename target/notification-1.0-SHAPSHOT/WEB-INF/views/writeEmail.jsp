@@ -7,7 +7,13 @@
     <title>Title</title>
 
   <style>
-
+          #mailList{
+            border: 1.5px solid darkred;
+            border-radius: 12px;
+          }
+          #mailHead{
+            background-color: darkgoldenrod;
+          }
   </style>
 </head>
 <body>
@@ -50,9 +56,10 @@
 </section>
 
 <div>
-   <table>
-     <tr>
-       <thead>
+    <h1><b><u>ToDay Mail Schedule</u></b></h1>
+   <table id="mailList" class="table table-striped table-hover">
+       <thead id="mailHead">
+       <tr>
        <th>#</th>
        <th>Mail Id</th>
        <th>Sub Title</th>

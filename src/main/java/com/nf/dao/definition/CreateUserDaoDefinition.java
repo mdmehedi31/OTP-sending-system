@@ -13,4 +13,6 @@ public interface CreateUserDaoDefinition {
     public List<User> listUser();
     public boolean deleteUser(User user);
 
+    public User findByEmailId(String usEmail);
+
 }

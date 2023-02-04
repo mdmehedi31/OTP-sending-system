@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.Properties;
 
 @EnableWebMvc
-@Configuration
+/*@Configuration*/
 @ComponentScan(basePackages = {"com.nf"})
 public class ServletConfig implements WebMvcConfigurer {
 

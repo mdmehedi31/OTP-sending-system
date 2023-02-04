@@ -75,4 +75,17 @@ public class CreateUserDaoImpl implements CreateUserDaoDefinition {
             return false;
         }
     }
+
+    //from User where email=:usEmail",
+    @Override
+    public User findByEmailId(String usEmail) {
+
+            List<User> users = sessionFactory.getCurrentSession()
+                    .createQuery("from User where email=:usEmail", User.class)
+                    .setParameter("usEmail", usEmail)
+                    .getResultList();
+            return users.size() > 0 ? users.get(0) : null;
+    }
+
+
 }
